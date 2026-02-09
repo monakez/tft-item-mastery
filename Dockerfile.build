@@ -1,0 +1,22 @@
+# Используем образ с Android SDK и Node.js
+FROM mobiledevops/android-sdk-image:34
+
+WORKDIR /app
+
+# Устанавливаем зависимости Node.js
+COPY package*.json ./
+RUN npm install
+
+# Копируем весь проект
+COPY . .
+
+# Собираем веб-часть (Vite/PixiJS)
+RUN npm run build
+
+# Синхронизируем Capacitor (копируем dist в папку android)
+RUN npx cap sync android
+
+# Переходим в папку android и собираем APK через Gradle
+WORKDIR /app/android
+RUN ./gradlew assembleDebug
+

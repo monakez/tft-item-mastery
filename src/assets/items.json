@@ -1,0 +1,752 @@
+[
+  {
+    "name": "B. F. Sword",
+    "id": "BFSword",
+    "icon": "B._F._Sword_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 1,
+    "recipe": null
+  },
+  {
+    "name": "Tear of the Goddess",
+    "id": "TearoftheGoddess",
+    "icon": "Tear_of_the_Goddess_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 1,
+    "recipe": null
+  },
+  {
+    "name": "Needlessly Large Rod",
+    "id": "NeedlesslyLargeRod",
+    "icon": "Needlessly_Large_Rod_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 1,
+    "recipe": null
+  },
+  {
+    "name": "Recurve Bow",
+    "id": "RecurveBow",
+    "icon": "Recurve_Bow_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 1,
+    "recipe": null
+  },
+  {
+    "name": "Chain Vest",
+    "id": "ChainVest",
+    "icon": "Chain_Vest_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 1,
+    "recipe": null
+  },
+  {
+    "name": "Negatron Cloak",
+    "id": "NegatronCloak",
+    "icon": "Negatron_Cloak_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 1,
+    "recipe": null
+  },
+  {
+    "name": "Giant's Belt",
+    "id": "GiantsBelt",
+    "icon": "Giants_Belt_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 1,
+    "recipe": null
+  },
+  {
+    "name": "Sparring Gloves",
+    "id": "SparringGloves",
+    "icon": "Sparring_Gloves_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 1,
+    "recipe": null
+  },
+  {
+    "name": "Spatula",
+    "id": "Spatula",
+    "icon": "Spatula_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 2,
+    "recipe": null
+  },
+  {
+    "name": "Frying Pan",
+    "id": "FryingPan",
+    "icon": "Frying_Pan_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 2,
+    "recipe": null
+  },
+  {
+    "id": "Deathblade",
+    "name": "Deathblade",
+    "icon": "Deathblade_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "BFSword"
+    ]
+  },
+  {
+    "id": "GiantSlayer",
+    "name": "Giant Slayer",
+    "icon": "Giant_Slayer_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 15% additional  Damage Amp against Tanks.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "RecurveBow"
+    ]
+  },
+  {
+    "id": "HextechGunblade",
+    "name": "Hextech Gunblade",
+    "icon": "Hextech_Gunblade_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Heal the lowest percent Health ally for 20% of damage dealt.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "NeedlesslyLargeRod"
+    ]
+  },
+  {
+    "id": "SpearofShojin",
+    "name": "Spear of Shojin",
+    "icon": "Spear_of_Shojin_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Attacks grant 5 bonus Mana.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "EdgeofNight",
+    "name": "Edge of Night",
+    "icon": "Edge_of_Night_item.png",
+    "stats": {},
+    "description": "Passive:At 60% Health, briefly become untargetable, shed negative effects, and heal 30% missing health.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "ChainVest"
+    ]
+  },
+  {
+    "id": "Bloodthirster",
+    "name": "Bloodthirster",
+    "icon": "Bloodthirster_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Once per combat at 40% health, gain a 25% max Health Shield that lasts up to 5 seconds.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "NegatronCloak"
+    ]
+  },
+  {
+    "id": "SteraksGage",
+    "name": "Sterak's Gage",
+    "icon": "Steraks_Gage_TFT_item.png",
+    "stats": {},
+    "description": "Passive:At 60% Health, gain a Shield equal to 50% of the wearer's maximum Health that rapidly decays over 4 seconds.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "GiantsBelt"
+    ]
+  },
+  {
+    "id": "InfinityEdge",
+    "name": "Infinity Edge",
+    "icon": "Infinity_Edge_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Abilities can  critically strike.If the holder's abilities can already critically strike, gain 10%  Critical Strike Damage instead.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "SparringGloves"
+    ]
+  },
+  {
+    "id": "NoxusEmblem",
+    "name": "Noxus Emblem",
+    "icon": "Noxus_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Noxus trait.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "SlayerEmblem",
+    "name": "Slayer Emblem",
+    "icon": "Slayer_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Slayer trait.Upon dropping below 25% max Health, Gain 20 Mana and a 30% max Health Shield.",
+    "kind": 3,
+    "recipe": [
+      "BFSword",
+      "FryingPan"
+    ]
+  },
+  {
+    "id": "VoidStaff",
+    "name": "Void Staff",
+    "icon": "Void_Staff_item.png",
+    "stats": {},
+    "description": "Passive:Damage from attacks and Abilities 30%  Shred the target for 5 seconds. This effect does not stack.",
+    "kind": 3,
+    "recipe": [
+      "RecurveBow",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "ArchangelsStaff",
+    "name": "Archangel's Staff",
+    "icon": "Archangels_Staff_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Combat start: Gain 20%  Ability Power every 5 seconds in combat.",
+    "kind": 3,
+    "recipe": [
+      "NeedlesslyLargeRod",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "BlueBuff",
+    "name": "Blue Buff",
+    "icon": "Blue_Buff_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 10% additional Attack Damage and Ability Power from all sources.",
+    "kind": 3,
+    "recipe": [
+      "TearoftheGoddess",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "ProtectorsVow",
+    "name": "Protector's Vow",
+    "icon": "Protectors_Vow_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Combat Start: Gain 20 Mana.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "AdaptiveHelm",
+    "name": "Adaptive Helm",
+    "icon": "Adaptive_Helm_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain an additional 15% Mana from all sources. The wearer gains an additional bonus based on their Role:Tanks and Fighters: Gain 45 Armor and Magic Resistance.Other Roles: Gain 10%  Attack Damage and  Ability Power.",
+    "kind": 3,
+    "recipe": [
+      "NegatronCloak",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "SpiritVisage",
+    "name": "Spirit Visage",
+    "icon": "Spirit_Visage_item.png",
+    "stats": {},
+    "description": "Passive:Restore 2.5% of missing Health each second",
+    "kind": 3,
+    "recipe": [
+      "GiantsBelt",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "HandofJustice",
+    "name": "Hand of Justice",
+    "icon": "Hand_of_Justice_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 2 effects:15% Attack Damage and 15% Ability Power.12%  Omnivamp.",
+    "kind": 3,
+    "recipe": [
+      "SparringGloves",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "BilgewaterEmblem",
+    "name": "Bilgewater Emblem",
+    "icon": "Bilgewater_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Bilgewater trait.",
+    "kind": 3,
+    "recipe": [
+      "Spatula",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "InvokerEmblem",
+    "name": "Invoker Emblem",
+    "icon": "Invoker_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Invoker trait.On cast, gain Ability Power equal to 10% of Mana spent.",
+    "kind": 3,
+    "recipe": [
+      "FryingPan",
+      "TearoftheGoddess"
+    ]
+  },
+  {
+    "id": "GuinsoosRageblade",
+    "name": "Guinsoo's Rageblade",
+    "icon": "Guinsoos_Rageblade_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 7% stacking Attack Speed every second.",
+    "kind": 3,
+    "recipe": [
+      "NeedlesslyLargeRod",
+      "RecurveBow"
+    ]
+  },
+  {
+    "id": "RabadonsDeathcap",
+    "name": "Rabadon's Deathcap",
+    "icon": "Rabadons_Deathcap_TFT_item.png",
+    "stats": {},
+    "description": "",
+    "kind": 3,
+    "recipe": [
+      "NeedlesslyLargeRod",
+      "NeedlesslyLargeRod"
+    ]
+  },
+  {
+    "id": "Crownguard",
+    "name": "Crownguard",
+    "icon": "Crownguard_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Combat start: Gain a 25% max Health Shield for 8 seconds.When the shield expires, gain 25% Ability Power.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "NeedlesslyLargeRod"
+    ]
+  },
+  {
+    "id": "IonicSpark",
+    "name": "Ionic Spark",
+    "icon": "Ionic_Spark_TFT_item.png",
+    "stats": {},
+    "description": "Passive:30%  Shred enemies within 2 hexes. When enemies cast an Ability, deal magic damage equal to 150% of the Mana spent.Shred: Reduce Magic Resist.",
+    "kind": 3,
+    "recipe": [
+      "NeedlesslyLargeRod",
+      "NegatronCloak"
+    ]
+  },
+  {
+    "id": "Morellonomicon",
+    "name": "Morellonomicon",
+    "icon": "Morellonomicon_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Attacks and Abilities deal 1%  Burn and 33%  Wound to enemies for 10 seconds.Burn: Deals a percent of the target's max Health as true damage every second.Wound: Reduces healing received.",
+    "kind": 3,
+    "recipe": [
+      "GiantsBelt",
+      "NeedlesslyLargeRod"
+    ]
+  },
+  {
+    "id": "JeweledGauntlet",
+    "name": "Jeweled Gauntlet",
+    "icon": "Jeweled_Gauntlet_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Abilities can  critically strike.If the holder's abilities can already critically strike, gain 10%  Critical Strike Damage instead.",
+    "kind": 3,
+    "recipe": [
+      "NeedlesslyLargeRod",
+      "SparringGloves"
+    ]
+  },
+  {
+    "id": "IoniaEmblem",
+    "name": "Ionia Emblem",
+    "icon": "Ionia_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Ionia trait.",
+    "kind": 3,
+    "recipe": [
+      "NeedlesslyLargeRod",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "ArcanistEmblem",
+    "name": "Arcanist Emblem",
+    "icon": "Arcanist_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Arcanist trait.On kill, refund 20% of the holder's max Mana.",
+    "kind": 3,
+    "recipe": [
+      "FryingPan",
+      "NeedlesslyLargeRod"
+    ]
+  },
+  {
+    "id": "RedBuff",
+    "name": "Red Buff",
+    "icon": "Red_Buff_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Attacks and Abilities 1%  Burn and 33%  Wound enemies for 5 seconds.Burn: Deals a percent of the target's maximum Health as true damage every second.Wound: Reduces healing received.",
+    "kind": 3,
+    "recipe": [
+      "RecurveBow",
+      "RecurveBow"
+    ]
+  },
+  {
+    "id": "TitansResolve",
+    "name": "Titan's Resolve",
+    "icon": "Titans_Resolve_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 2% Attack Damage and 2 Ability Power when attacking or taking damage, stacking up to 25 times.At full stacks, gain 10%  Damage Amp and gain immunity to crowd control.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "RecurveBow"
+    ]
+  },
+  {
+    "id": "KrakensFury",
+    "name": "Kraken's Fury",
+    "icon": "Kraken_Slayer_item.png",
+    "stats": {},
+    "description": "Passive:Attacks grant 3.5% stacking Attack Damage, up to 15 attacks. After 15 attacks, gain 15% Attack Speed.",
+    "kind": 3,
+    "recipe": [
+      "NegatronCloak",
+      "RecurveBow"
+    ]
+  },
+  {
+    "id": "NashorsTooth",
+    "name": "Nashor's Tooth",
+    "icon": "Nashors_Tooth_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Attacks grant 2 bonus Mana, increased to 4 if they  critically strike.",
+    "kind": 3,
+    "recipe": [
+      "GiantsBelt",
+      "RecurveBow"
+    ]
+  },
+  {
+    "id": "LastWhisper",
+    "name": "Last Whisper",
+    "icon": "Last_Whisper_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Damage from attacks and Abilities damage 30%  Sunders the target for 3 seconds. This effect does not stack.",
+    "kind": 3,
+    "recipe": [
+      "RecurveBow",
+      "SparringGloves"
+    ]
+  },
+  {
+    "id": "VoidEmblem",
+    "name": "Void Emblem",
+    "icon": "Void_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Void trait.",
+    "kind": 3,
+    "recipe": [
+      "RecurveBow",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "QuickstrikerEmblem",
+    "name": "Quickstriker Emblem",
+    "icon": "Quickstriker_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Quickstriker trait.On takedown, dash to the nearest target and heal for 10% maximum Health.",
+    "kind": 3,
+    "recipe": [
+      "FryingPan",
+      "RecurveBow"
+    ]
+  },
+  {
+    "id": "BrambleVest",
+    "name": "Bramble Vest",
+    "icon": "Bramble_Vest_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 9% max health.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "ChainVest"
+    ]
+  },
+  {
+    "id": "GargoyleStoneplate",
+    "name": "Gargoyle Stoneplate",
+    "icon": "Gargoyle_Stoneplate_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 10 Armor and 10 Magic Resist for each enemy targeting the holder.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "NegatronCloak"
+    ]
+  },
+  {
+    "id": "SunfireCape",
+    "name": "Sunfire Cape",
+    "icon": "Sunfire_Cape_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 8% max health.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "GiantsBelt"
+    ]
+  },
+  {
+    "id": "SteadfastHeart",
+    "name": "Steadfast Heart",
+    "icon": "Steadfast_Heart_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 10%  Durability. While above 50% Health, instead gain 18%  Durability.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "SparringGloves"
+    ]
+  },
+  {
+    "id": "DemaciaEmblem",
+    "name": "Demacia Emblem",
+    "icon": "Demacia_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Demacia trait.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "DefenderEmblem",
+    "name": "Defender Emblem",
+    "icon": "Defender_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Defender trait.Combat Start: Gain 35% more Armor OR Magic Resist from all sources, depending on whichever is higher.",
+    "kind": 3,
+    "recipe": [
+      "ChainVest",
+      "FryingPan"
+    ]
+  },
+  {
+    "id": "DragonsClaw",
+    "name": "Dragon's Claw",
+    "icon": "Dragons_Claw_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 9% max health.",
+    "kind": 3,
+    "recipe": [
+      "NegatronCloak",
+      "NegatronCloak"
+    ]
+  },
+  {
+    "id": "Evenshroud",
+    "name": "Evenshroud",
+    "icon": "Evenshroud_TFT_item.png",
+    "stats": {},
+    "description": "Passive:30%  Sunder enemies with 2 hexes. Gain 25 Armor and Magic Resist for the first 15 seconds of combat.Sunder: Reduce Armor.",
+    "kind": 3,
+    "recipe": [
+      "GiantsBelt",
+      "NegatronCloak"
+    ]
+  },
+  {
+    "id": "Quicksilver",
+    "name": "Quicksilver",
+    "icon": "Quicksilver_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Combat start: Gain immunity to crowd control for 18 seconds.",
+    "kind": 3,
+    "recipe": [
+      "NegatronCloak",
+      "SparringGloves"
+    ]
+  },
+  {
+    "id": "YordleEmblem",
+    "name": "Yordle Emblem",
+    "icon": "Yordle_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Yordle trait.",
+    "kind": 3,
+    "recipe": [
+      "NegatronCloak",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "JuggernautEmblem",
+    "name": "Juggernaut Emblem",
+    "icon": "Juggernaut_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Juggernaut trait and 10% of other Juggernaut's max Health when they die.",
+    "kind": 3,
+    "recipe": [
+      "FryingPan",
+      "NegatronCloak"
+    ]
+  },
+  {
+    "id": "WarmogsArmor",
+    "name": "Warmog's Armor",
+    "icon": "Warmogs_Armor_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Gain 18% max health.",
+    "kind": 3,
+    "recipe": [
+      "GiantsBelt",
+      "GiantsBelt"
+    ]
+  },
+  {
+    "id": "StrikersFlail",
+    "name": "Striker's Flail",
+    "icon": "Guardbreaker_TFT_item.png",
+    "stats": {},
+    "description": "Passive: Critical Strikes grant 5%  Damage Amp for 5 seconds, stacking up to 4 times.",
+    "kind": 3,
+    "recipe": [
+      "GiantsBelt",
+      "SparringGloves"
+    ]
+  },
+  {
+    "id": "FreljordEmblem",
+    "name": "Freljord Emblem",
+    "icon": "Freljord_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Freljord trait.",
+    "kind": 3,
+    "recipe": [
+      "GiantsBelt",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "BruiserEmblem",
+    "name": "Bruiser Emblem",
+    "icon": "Bruiser_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Bruiser trait.Every second, deal 2% of the holder's max Health as magic damage in a 1-hex radius.",
+    "kind": 3,
+    "recipe": [
+      "FryingPan",
+      "GiantsBelt"
+    ]
+  },
+  {
+    "id": "ThiefsGloves",
+    "name": "Thief's Gloves",
+    "icon": "Thiefs_Gloves_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Each round: Equip 2 random items.",
+    "kind": 3,
+    "recipe": [
+      "SparringGloves",
+      "SparringGloves"
+    ]
+  },
+  {
+    "id": "ZaunEmblem",
+    "name": "Zaun Emblem",
+    "icon": "Zaun_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Zaun trait.",
+    "kind": 3,
+    "recipe": [
+      "SparringGloves",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "VanquisherEmblem",
+    "name": "Vanquisher Emblem",
+    "icon": "Vanquisher_Emblem_TFT_item.png",
+    "stats": {},
+    "description": "Passive:The holder gains the  Vanquisher trait and a 3% chance to drop  1 on critical strikes.",
+    "kind": 3,
+    "recipe": [
+      "FryingPan",
+      "SparringGloves"
+    ]
+  },
+  {
+    "id": "TacticiansCrown",
+    "name": "Tactician's Crown",
+    "icon": "Tacticians_Crown_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Your team gains +1 maximum team size.10% chance to drop  1 when you win combat.",
+    "kind": 3,
+    "recipe": [
+      "Spatula",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "TacticiansCape",
+    "name": "Tactician's Cape",
+    "icon": "Tacticians_Cape_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Your team gains +1 maximum team size.10% chance to drop  1 after 10 seconds of combat.",
+    "kind": 3,
+    "recipe": [
+      "FryingPan",
+      "Spatula"
+    ]
+  },
+  {
+    "id": "TacticiansShield",
+    "name": "Tactician's Shield",
+    "icon": "Tacticians_Shield_TFT_item.png",
+    "stats": {},
+    "description": "Passive:Your team gains +1 maximum team size.10% chance to drop  1 when the holder dies.",
+    "kind": 3,
+    "recipe": [
+      "FryingPan",
+      "FryingPan"
+    ]
+  }
+]
