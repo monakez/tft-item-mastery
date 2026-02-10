@@ -1,6 +1,5 @@
-import { BASE_ITEMS, getRandomCombinedItem, getRecipe, findItemByRecipe } from '../utils/itemUtils.js';
 import { Point, Sprite, Texture, Container } from 'pixi.js';
-import TftItem from '../components/TftItem.js'
+import TftItem from '../components/TftItem.js';
 import { GlowFilter } from 'pixi-filters';
 
 export default class ItemDragPanel extends Container {
@@ -12,40 +11,40 @@ export default class ItemDragPanel extends Container {
     this.dragOffset = { x: 0, y: 0 };
     this.baseSprites = [];
     this.drawItems();
-    this.disableGlow()
+    this.disableGlow();
   }
 
   glow(id) {
-    const toGlow = this.baseSprites.filter( (pred,self)=>{
+    const toGlow = this.baseSprites.filter((pred) => {
       //get all with matching id and not glow
-      return pred?.item?.id === id && pred?.glow?.outerStrength===0 
-    })
+      return pred?.item?.id === id && pred?.glow?.outerStrength === 0;
+    });
     if (toGlow[0]?.glow) {
-      toGlow[0].glow.outerStrength=2
+      toGlow[0].glow.outerStrength = 2;
     }
   }
 
   disableGlow() {
-    this.baseSprites.forEach((s,i)=>{
-      s.glow.outerStrength=0;
-    })
+    this.baseSprites.forEach((s) => {
+      s.glow.outerStrength = 0;
+    });
   }
 
   drawItems() {
-    const baseItems=this.ctx.currentSet?.base || []
-    const shuffledPairs = [...baseItems,...baseItems].sort(() => Math.random() - 0.5);
+    const baseItems = this.ctx.currentSet?.base || [];
+    const shuffledPairs = [...baseItems, ...baseItems].sort(() => Math.random() - 0.5);
     const size = 70;
     const spacing = 15;
     const rows = 2;
     const cols = Math.ceil(shuffledPairs.length / rows);
-    
+
     const containerWidth = this.parent?.width || this.ctx.app.screen.width;
     const startX = (containerWidth - (cols * (size + spacing) - spacing)) / 2;
     const startY = 0;
-    this.baseSprites.forEach(s=>{
-      s.off()
-      s.destroy({ children: true, texture: false })
-    })
+    this.baseSprites.forEach((s) => {
+      s.off();
+      s.destroy({ children: true, texture: false });
+    });
 
     this.baseSprites = [];
 
@@ -55,9 +54,7 @@ export default class ItemDragPanel extends Container {
       const x = startX + col * (size + spacing);
       const y = startY + row * (size + spacing);
 
-      const sprite = new TftItem(item, size, size)
-        .makeInteractive()
-        .setPosition(x, y);
+      const sprite = new TftItem(item, size, size).makeInteractive().setPosition(x, y);
 
       // Сохраняем исходные координаты
       sprite.originalX = x;
@@ -78,7 +75,6 @@ export default class ItemDragPanel extends Container {
     });
   }
 
-
   applyGlowFilter(sprite) {
     const glow = new GlowFilter({
       distance: 5,
@@ -92,13 +88,12 @@ export default class ItemDragPanel extends Container {
     sprite.filters = [glow];
   }
 
-
   onDragStart(event) {
     const sprite = event.currentTarget;
     this.draggingSprite = sprite;
     this.dragOffset = {
       x: event.global.x - sprite.x,
-      y: event.global.y - sprite.y
+      y: event.global.y - sprite.y,
     };
     sprite.cursor = 'grabbing';
     sprite.alpha = 0.8;
@@ -111,7 +106,6 @@ export default class ItemDragPanel extends Container {
     this.draggingSprite.y = event.global.y - this.dragOffset.y;
   }
 
-
   onDragEnd() {
     if (!this.draggingSprite) return;
 
@@ -119,29 +113,27 @@ export default class ItemDragPanel extends Container {
     dragged.alpha = 1.0;
     dragged.cursor = 'grab';
 
-
     // Проверяем дроп
     let dropTarget = null;
     for (const other of this.baseSprites) {
-      if (other !== dragged && this.isColliding(dragged,other)) {
-        dropTarget=other;
+      if (other !== dragged && this.isColliding(dragged, other)) {
+        dropTarget = other;
         break;
       }
     }
     this.draggingSprite = null;
 
     if (!dropTarget) {
-      return
+      dragged.x = dragged.originalX;
+      dragged.y = dragged.originalY;
+      return;
     }
-    const dropPoint = new Point(
-      (dragged.x + dropTarget.x) / 2,
-      (dragged.y + dropTarget.y) / 2
-    );
+    const dropPoint = new Point((dragged.x + dropTarget.x) / 2, (dragged.y + dropTarget.y) / 2);
     const globalDropPos = this.toGlobal(dropPoint);
-    const combinedPosition= {
+    const combinedPosition = {
       x: globalDropPos.x,
-      y: globalDropPos.y
-    }
+      y: globalDropPos.y,
+    };
     const found = this.combineItems(dragged.item, dropTarget.item);
 
     dragged.x = dragged.originalX;
@@ -152,29 +144,31 @@ export default class ItemDragPanel extends Container {
         itemA: dragged.item,
         itemB: dropTarget.item,
         result: found,
-        position: combinedPosition
-      })
+        position: combinedPosition,
+      });
     }
-
   }
 
   isColliding(a, b) {
     const aBounds = a.getBounds();
     const bBounds = b.getBounds();
 
-    return aBounds.x + aBounds.width > bBounds.x &&
-           aBounds.x < bBounds.x + bBounds.width &&
-           aBounds.y + aBounds.height > bBounds.y &&
-           aBounds.y < bBounds.y + bBounds.height;
+    return (
+      aBounds.x + aBounds.width > bBounds.x &&
+      aBounds.x < bBounds.x + bBounds.width &&
+      aBounds.y + aBounds.height > bBounds.y &&
+      aBounds.y < bBounds.y + bBounds.height
+    );
   }
   combineItems(itemA, itemB) {
     const recipe = [itemA.id, itemB.id].sort();
-    
-    const foundItem = this.ctx.currentSet.findItemByRecipe(recipe) || this.ctx.sets['all'].findItemByRecipe(recipe)
+
+    const foundItem =
+      this.ctx.currentSet.findItemByRecipe(recipe) || this.ctx.sets['all'].findItemByRecipe(recipe);
     if (!foundItem) {
-      throw new Error("recipe not found")
+      throw new Error('recipe not found');
     }
-    return foundItem
+    return foundItem;
   }
 
   destroy() {

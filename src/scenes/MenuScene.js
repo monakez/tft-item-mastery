@@ -8,7 +8,7 @@ export default class MenuScene extends BaseScene {
       fontFamily: 'Arial',
       fontSize: 24,
       fill: 0xffffff,
-      align: 'center'
+      align: 'center',
     });
 
     const buttonText = new Text({ text, style });

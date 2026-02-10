@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">tft-item-mastery</string>
+    <string name="title_activity_main">tft-item-mastery</string>
+    <string name="package_name">com.tft.forrge</string>
+    <string name="custom_url_scheme">com.tft.forrge</string>
+</resources>

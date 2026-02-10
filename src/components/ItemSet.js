@@ -1,20 +1,17 @@
-
 export default class ItemSet {
-
-  constructor(base,combo) {
-
-    this.base=base
-    this.combo=combo
+  constructor(baseItems, comboItems) {
+    this.base = baseItems;
+    this.combo = comboItems;
   }
 
   getRecipe(itemId) {
-    const item =  this.combo.find(i => i.id === itemId);
-    const baseIds=base.map(i=>i.id)
-    const rcp= item?.recipe || [];
+    const item = this.combo.find((i) => i.id === itemId);
+    const baseIds = this.base.map((i) => i.id);
+    const rcp = item?.recipe || [];
     if (!baseIds.includes(rcp)) {
-      throw new Error("invalid recipe data")
+      throw new Error('invalid recipe data');
     }
-    return rcp
+    return rcp;
   }
 
   getRandomCombinedItem() {
@@ -23,11 +20,10 @@ export default class ItemSet {
   }
   findItemByRecipe(recipe) {
     const sortedRecipe = recipe.slice().sort();
-    return this.combo.find(item => {
+    return this.combo.find((item) => {
       if (!item.recipe) return false;
       const sortedItemRecipe = item.recipe.slice().sort();
       return JSON.stringify(sortedRecipe) === JSON.stringify(sortedItemRecipe);
     });
   }
-
 }

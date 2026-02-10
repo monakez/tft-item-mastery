@@ -4,19 +4,19 @@ export default class TftItem extends Sprite {
   constructor(item, width = 64, height = 64) {
     // Создаем спрайт с пустой текстурой
     super(Texture.EMPTY);
-    
+
     this.item = item;
     this.width = width;
     this.height = height;
 
     // Загружаем реальную текстуру
     this.texture = Texture.from(`/items/${item.icon}`);
-    
+
     // Центрирование (опционально)
     // this.anchor.set(0.5);
   }
 
-    // Inside your TftItem class
+  // Inside your TftItem class
   updateData(newItem) {
     this.item = newItem; // Update the reference to the data object
 
