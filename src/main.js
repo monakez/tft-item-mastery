@@ -24,7 +24,7 @@ async function init() {
   document.body.appendChild(app.canvas);
 
   // 4. Загружаем данные предметов
-  const res = await fetch('/src/assets/items.json');
+  const res = await fetch(`${import.meta.env.BASE_URL}src/assets/items.json`);
   const items = await res.json();
   const BASE_ITEMS = items.filter((item) => item.kind === 1);
 
@@ -42,7 +42,7 @@ async function init() {
 
   // 5. Загружаем текстуры
   const uniqueIcons = [...new Set(items.map((item) => item.icon))];
-  const textureUrls = uniqueIcons.map((icon) => `/items/${icon}`);
+  const textureUrls = uniqueIcons.map((icon) => `${import.meta.env.BASE_URL}items/${icon}`);
   await Assets.load(textureUrls);
 
   const baseItems = new ItemSet(BASE_ITEMS, COMBINED_ITEMS);

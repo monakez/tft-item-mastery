@@ -10,7 +10,7 @@ export default class TftItem extends Sprite {
     this.height = height;
 
     // Загружаем реальную текстуру
-    this.texture = Texture.from(`/items/${item.icon}`);
+    this.texture = Texture.from(`${import.meta.env.BASE_URL}items/${item.icon}`);
 
     // Центрирование (опционально)
     // this.anchor.set(0.5);
@@ -22,7 +22,7 @@ export default class TftItem extends Sprite {
 
     // 1. Update the texture
     // If you use Assets.get() or Texture.from()
-    this.texture = Texture.from(`/items/${newItem.icon}`);
+    this.texture = Texture.from(`${import.meta.env.BASE_URL}items/${newItem.icon}`);
 
     // 2. Optional: Adjust scaling if icons have different sizes
     // this.sprite.width = this.targetWidth;
