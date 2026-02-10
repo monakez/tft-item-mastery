@@ -56,7 +56,10 @@ async function init() {
   ctx.setBase(baseItems);
   ctx.setAll(allItems);
   ctx.setEmblem(emblemItems);
-  initDevtools({ app });
+  if (import.meta.env.DEV) {
+    initDevtools({ app });
+  }
+
   // 6. Запускаем первую сцену
   ctx.goToScene(HomeScene);
 }

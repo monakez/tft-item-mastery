@@ -15,5 +15,12 @@ export default defineConfig({
   base: '/tft-item-mastery/',
   build: {
     target: 'es2022',
+    minify: 'terser', // Tell Vite to use Terser instead of esbuild
+    terserOptions: {
+      compress: {
+        drop_console: true, // Removes all console.* calls
+        drop_debugger: true, // Removes debugger; statements
+      },
+    },
   },
 });
