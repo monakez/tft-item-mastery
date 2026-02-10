@@ -1,4 +1,4 @@
-import{S as G,T as S,b as P,G as b,c as I,d as _,C as v,P as D,B as E,f as x}from"./index-CPZa50bd.js";class y extends G{constructor(t,n=64,e=64){super(S.EMPTY),this.item=t,this.width=n,this.height=e,this.texture=S.from(`/tft-item-mastery/items/${t.icon}`)}updateData(t){this.item=t,this.texture=S.from(`/tft-item-mastery/items/${t.icon}`),this.glow&&(this.glow.outerStrength=0)}setPosition(t,n){return this.position.set(t,n),this}makeInteractive(){return this.interactive=!0,this.cursor="pointer",this}}var O=`in vec2 aPosition;
+import{S as G,T as S,b as P,G as b,c as I,d as _,C as v,P as D,B as E,f as x}from"./index-DPQEcIlb.js";class y extends G{constructor(t,n=64,e=64){super(S.EMPTY),this.item=t,this.width=n,this.height=e,this.texture=S.from(`/tft-item-mastery/items/${t.icon}`)}updateData(t){this.item=t,this.texture=S.from(`/tft-item-mastery/items/${t.icon}`),this.glow&&(this.glow.outerStrength=0)}setPosition(t,n){return this.position.set(t,n),this}makeInteractive(){return this.interactive=!0,this.cursor="pointer",this}}var O=`in vec2 aPosition;
 out vec2 vTextureCoord;
 
 uniform vec4 uInputSize;
