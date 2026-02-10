@@ -1,28 +1,64 @@
-# React + Vite
+# TFT Item Combinator 🧩
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TFT Item Combinator** — это интерактивный тренажер для игроков в Teamfight Tactics (TFT). Цель игры — помочь игрокам довести до автоматизма знание рецептов предметов, чтобы быстрее принимать решения во время реального матча.
 
-Currently, two official plugins are available:
+[**Запустить игру в браузере**](#) <!-- Замени решетку на свою ссылку -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎮 Суть игры
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Вам дается целевой **комбо-предмет** (Combined Item) и набор всех **базовых компонентов** (Base Items).
 
-## Expanding the ESLint configuration
+- **Задача:** Выбрать два правильных базовых предмета, из которых собирается искомый артефакт.
+- **Механика:** Игра проверяет ваши знания рецептов в реальном времени.
+- **Платформа:** Веб-браузер (технология **WebGL**).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Особенности
+
+- **Актуальные рецепты:** Все комбинации соответствуют текущему сету TFT(set 16).
+- **Высокая производительность:** Благодаря WebGL игра работает плавно даже на слабых устройствах.
+- **Интуитивный интерфейс:** Простое управление кликами.
+- **Обучающий эффект:** Идеально подходит как для новичков, так и для профи, желающих освежить память.
+
+---
+
+## 🚀 Как запустить локально
+
+Если вы хотите внести изменения в проект или запустить его у себя на компьютере:
+
+1.  Клонируйте репозиторий:
+    ```bash
+    git clone https://github.com/monakez/tft-item-mastery.git
+    ```
+2.  Перейдите в папку проекта:
+    ```bash
+    cd tft-item-combinator
+    ```
+3.  Запустите локальный сервер (например, через расширение Live Server в VS Code или Python):
+    ```bash
+    npm run dev
+    ```
+4.  Откройте в браузере: `http://localhost:5173`
+
+---
+
+## 📝 Roadmap
+
+- [ ] Добавить режим "дождь".
+- [ ] Поддержка новых сетов при обновлении игры.
+
+---
+
+**Удачного фарма и топ-1 в лобби! 🏆**
 
 # Android
 
-untested since i have no emulators and devices
+не тестировал, тк у меня нет ни желания, ни эмулятора, ни устройства под рукой
 
 ```bash
 # Сборка образа
 docker build -t tft-build .
 
-# Извлечение готового APK на ваш компьютер
 docker run --rm -v $(pwd):/output tft-build cp /app/android/app/build/outputs/apk/debug/app-debug.apk /output/game.apk
 ```
