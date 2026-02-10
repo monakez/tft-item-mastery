@@ -1,3 +1,4 @@
+import itemsData from './assets/items.json'; // Vite сам преобразует это в объект
 import Context from './Context.js';
 import { Application, Assets } from 'pixi.js';
 import HomeScene from './scenes/HomeScene.js';
@@ -24,8 +25,7 @@ async function init() {
   document.body.appendChild(app.canvas);
 
   // 4. Загружаем данные предметов
-  const res = await fetch(`${import.meta.env.BASE_URL}src/assets/items.json`);
-  const items = await res.json();
+  const items = itemsData;
   const BASE_ITEMS = items.filter((item) => item.kind === 1);
 
   const EMBLEM_ITEMS = items.filter((item) => item.kind === 2);
