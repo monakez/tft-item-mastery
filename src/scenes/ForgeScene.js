@@ -128,10 +128,10 @@ export default class ForgeScene extends GameScene {
     this.targetItem.y = (areaH - realHeight * this.targetItem.scale.y) / 2;
   }
 
-  findTargetTftItem(_combined) {
-    // if (combined.id !== this.targetItem.item.id) {
-    //   return null;
-    // }
+  findTargetTftItem(combined) {
+    if (combined.id !== this.targetItem.item.id) {
+      return null;
+    }
     return this.targetItem;
   }
 
