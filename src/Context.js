@@ -1,18 +1,28 @@
+import { ItemSetType } from './components/ItemSetType';
+
 export default class Context {
-  constructor(app, currentSet) {
+  constructor(app) {
     this.app = app;
     this.currentScene = null;
     this.sets = {};
-    this.currentSet = currentSet;
+    this.activeSetId = ItemSetType.BASE.id;
   }
-  setEmblem(base) {
-    this.sets['emblem'] = base;
+  initializeSets(baseData, emblemData, allData) {
+    this.sets[ItemSetType.BASE.id] = baseData;
+    this.sets[ItemSetType.EMBLEM.id] = emblemData;
+    this.sets[ItemSetType.ALL.id] = allData;
   }
-  setAll(base) {
-    this.sets['all'] = base;
+
+  // Геттер возвращает данные, соответствующие активному типу
+  get currentSet() {
+    return this.sets[this.activeSetId];
   }
-  setBase(base) {
-    this.sets['base'] = base;
+
+  // Смена активного сета по ID
+  selectSet(id) {
+    if (this.sets[id]) {
+      this.activeSetId = id;
+    }
   }
 
   goToScene(SceneClass, ...args) {

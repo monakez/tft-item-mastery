@@ -52,10 +52,9 @@ async function init() {
     [...COMBINED_EMBLEM_ITEMS, ...COMBINED_ITEMS],
   );
 
-  const ctx = new Context(app, emblemItems);
-  ctx.setBase(baseItems);
-  ctx.setAll(allItems);
-  ctx.setEmblem(emblemItems);
+  const ctx = new Context(app);
+  ctx.initializeSets(baseItems, emblemItems, allItems);
+
   if (import.meta.env.DEV) {
     initDevtools({ app });
   }

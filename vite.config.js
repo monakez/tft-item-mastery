@@ -1,7 +1,13 @@
 import checker from 'vite-plugin-checker';
 import { defineConfig } from 'vite';
-
+import path from 'path';
 export default defineConfig({
+  resolve: {
+    alias: {
+      // Map '@' to the 'src' directory
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   plugins: [
     checker({
       eslint: {

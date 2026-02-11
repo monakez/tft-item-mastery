@@ -2,6 +2,7 @@ import { Select } from '@pixi/ui';
 import TargetItem from '../components/TargetItem.js';
 import { Texture, Text, Sprite, Graphics } from 'pixi.js';
 import { GameScene, TARGET_SIZE } from './GameScene.js';
+import { ItemSetType } from '@/components/ItemSetType.js';
 
 export default class ForgeScene extends GameScene {
   constructor(ctx) {
@@ -24,70 +25,68 @@ export default class ForgeScene extends GameScene {
     return `Hit: ${this.recipeCounter.hitTotal} Miss: ${this.recipeCounter.missTotal}`;
   }
 
+  // src/scenes/ForgeScene.js (обновленный drawUI с адаптивностью)
   drawUI() {
-    // Ваш существующий текст счета
-    this.scoreText = new Text(this.getCountString(), { fill: 0xffffff, fontSize: 18 });
-    this.scoreText.position.set(20, 20);
-    this.hudContainer.addChild(this.scoreText);
+    const { width, height } = this.ctx.app.screen;
+    const isPortrait = height > width;
+    const margin = isPortrait ? 10 : 20;
 
-    // 1. Настройка стиля текста для списка
-    const itemStyle = { fill: 0x000000, fontSize: 20 };
+    const topHeight = this.topHudContainer.height;
+    // Текст счета
+    this.scoreText = new Text(this.getCountString(), {
+      fill: 0xffffff,
+      fontSize: isPortrait ? 14 : 18,
+    });
+    const textY = (topHeight - this.scoreText.height) / 2;
+    this.scoreText.position.set(margin, textY);
+    this.topHudContainer.addChild(this.scoreText);
 
-    const onSelectCallback = [
-      {
-        name: 'Base Combo items',
-        cb: () => {
-          this.ctx.currentSet = this.ctx.sets['base'];
-        },
-      },
-      {
-        name: 'Emblem Combo items',
-        cb: () => {
-          this.ctx.currentSet = this.ctx.sets['emblem'];
-        },
-      },
-      {
-        name: 'All Combo items',
-        cb: () => {
-          this.ctx.currentSet = this.ctx.sets['all'];
-        },
-      },
-    ];
-    // 2. Создаем компонент Select
+    const types = Object.values(ItemSetType);
+    const activeIndex = types.findIndex((t) => t.id === this.ctx.activeSetId);
+
+    const itemStyle = { fill: 0x000000, fontSize: isPortrait ? 14 : 18 };
+
+    const selectWidth = isPortrait ? 140 : 200;
+    const selectHeight = isPortrait ? 25 : 40;
+
     const select = new Select({
-      // Фон закрытого состояния
-      closedBG: new Graphics().roundRect(0, 0, 200, 40, 10).fill(0xcccccc),
-      // Фон открытого состояния (на 5 элементов вниз)
-      openBG: new Graphics().roundRect(0, 0, 200, 200, 10).fill(0xeeeeee),
+      closedBG: new Graphics().roundRect(0, 0, selectWidth, selectHeight, 10).fill(0xcccccc),
+      openBG: new Graphics().roundRect(0, 0, selectWidth, 200, 10).fill(0xeeeeee),
       textStyle: itemStyle,
+      selected: activeIndex,
       items: {
-        items: onSelectCallback.map((o) => o.name),
+        items: types.map((t) => t.name),
         backgroundColor: 0xeeeeee,
         hoverColor: 0xdddddd,
-        width: 200,
-        height: 40,
+        width: selectWidth,
+        height: selectHeight,
         textStyle: itemStyle,
       },
       scrollBox: {
-        width: 200,
-        height: 160, // Высота видимой части выпадающего списка
+        width: selectWidth,
+        height: 160,
       },
     });
 
-    select.position.set(20, 60);
+    const selectX = width - selectWidth - margin;
+    const selectY = (topHeight - selectHeight) / 2;
+    select.position.set(selectX, selectY);
 
-    // 3. Обработка выбора
-    select.onSelect.connect((_index, text) => {
-      const item = onSelectCallback.find((obj) => obj.name === text);
-      if (item && item.cb) {
-        item.cb();
+    select.onSelect.connect((index) => {
+      const selectedType = types[index]; // Получаем объект {id, name} по индексу
+
+      if (selectedType) {
+        this.ctx.selectSet(selectedType.id); // Меняем ID в контексте
+
+        // Теперь this.ctx.currentSet автоматически вернет нужный объект данных
+        console.log('Active data:', this.ctx.currentSet);
+
         this.ctx.goToScene(ForgeScene);
       }
     });
 
-    this.hudContainer.addChild(select);
+    this.topHudContainer.addChild(select);
 
-    // 4. КРИТИЧНО: Чтобы работал ScrollBox внутри Select
     this.ctx.app.ticker.add(() => {
       if (select && select.update) {
         select.update();
@@ -96,29 +95,44 @@ export default class ForgeScene extends GameScene {
   }
 
   drawTarget() {
+    const areaW = this.gameAreaContainer.width;
+    const areaH = this.gameAreaContainer.height;
+
     if (!this.targetItem) {
-      this.targetItem = new TargetItem(this.ctx.currentSet.getRandomCombinedItem(), TARGET_SIZE);
-      const parentW = this.gameAreaContainer.width;
-      const parentH = this.gameAreaContainer.height;
-
-      // Если TARGET_SIZE — это и ширина, и высота (квадрат)
-      const itemW = TARGET_SIZE;
-      const itemH = TARGET_SIZE;
-
-      this.targetItem.x = parentW / 2 - itemW / 2;
-      this.targetItem.y = parentH / 2 - itemH / 2;
-      // this.targetItem.position.set(this.ctx.app.screen.width / 2 - 48, 100);
+      // Передаем areaW как maxWidth
+      this.targetItem = new TargetItem(
+        this.ctx.currentSet.getRandomCombinedItem(),
+        TARGET_SIZE,
+        areaW,
+      );
       this.gameAreaContainer.addChild(this.targetItem);
     } else {
-      this.targetItem.update(this.ctx.currentSet.getRandomCombinedItem());
+      this.targetItem.update(this.ctx.currentSet.getRandomCombinedItem(), areaW);
     }
+
+    // --- Масштабирование по высоте ---
+    this.targetItem.scale.set(1);
+    const realHeight = this.targetItem.height;
+
+    if (realHeight > areaH - 20) {
+      const scale = (areaH - 20) / realHeight;
+      this.targetItem.scale.set(scale);
+    }
+
+    // --- Позиционирование ---
+    // По X всегда 0, так как контейнер равен ширине экрана
+    // Если мы уменьшили масштаб, нужно отцентрировать по X вручную:
+    this.targetItem.x = (areaW - areaW * this.targetItem.scale.x) / 2;
+
+    // Центрируем по вертикали
+    this.targetItem.y = (areaH - realHeight * this.targetItem.scale.y) / 2;
   }
 
-  findTargetTftItem(combined) {
-    if (combined.id !== this.targetItem.item.id) {
-      return null;
-    }
-    return this.targetItem.sprite;
+  findTargetTftItem(_combined) {
+    // if (combined.id !== this.targetItem.item.id) {
+    //   return null;
+    // }
+    return this.targetItem;
   }
 
   updateCounter() {
@@ -151,6 +165,7 @@ export default class ForgeScene extends GameScene {
   }
 
   onHit(_combinedItem, _targetTftItem) {
+    console.log('HIT');
     this.recipeCounter.ok = 0;
     this.recipeCounter.hitTotal++;
     this.updateCounter();
@@ -160,6 +175,7 @@ export default class ForgeScene extends GameScene {
   }
 
   onMiss(_resultItem) {
+    console.log('HIT');
     //find 1st item to glow
     this.recipeCounter.missTotal++;
     if (this.recipeCounter.missTotal % 3 === 1) {

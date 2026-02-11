@@ -5,6 +5,7 @@ export default class BaseScene {
   constructor(ctx) {
     this.ctx = ctx;
     this.container = new Container(); // корневой контейнер сцены
+    this.container.label = 'Base Container';
   }
 
   destroy() {
